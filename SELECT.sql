@@ -1,6 +1,5 @@
 -- LV2 부모의 형질을 모두 가지는 대장균 찾기
 -- https://school.programmers.co.kr/learn/courses/30/lessons/301647
-
 SELECT
     B.ID
     , B.GENOTYPE
@@ -15,11 +14,10 @@ ORDER BY ID
 
 -- LV1 특정 형질을 가지는 대장균 찾기기
 -- https://school.programmers.co.kr/learn/courses/30/lessons/301646
-
 SELECT
     COUNT(*) AS COUNT
 FROM
     ECOLI_DATA
 WHERE 
-    (GENOTYPE & 2) = 0  
-    AND ((GENOTYPE & 1) > 0 OR (GENOTYPE & 4) > 0)
+    (GENOTYPE & 2) = 0  -- 2 비트가 0인 경우
+    AND ((GENOTYPE & 1) > 0 OR (GENOTYPE & 4) > 0) -- 1, 2, 4 비트가 1인 경우
